@@ -16,7 +16,7 @@ export class LayeredDisplayComponent implements OnInit, AfterViewInit {
   private readonly requestDraw$ = new Subject<void>();
   private readonly MY_SETTINGS_BROKER_ID = "LayeredDisplayComponent";
 
-  private lastSettings?: LayeredDisplaySettings;
+  private lastSettings?: LayeredDisplaySettings; // used to find removed files to clear their fps intervals
 
   @ViewChild('displayCanvas') displayCanvas!: ElementRef<HTMLCanvasElement>;
   @ViewChild('container') container!: ElementRef<HTMLDivElement>;
@@ -68,7 +68,7 @@ export class LayeredDisplayComponent implements OnInit, AfterViewInit {
   private updateImageSettings(settings: LayeredDisplaySettings): void {
     settings.fileSettings.forEach((file) => {
       // check if the file needs to be loaded/configured
-      if(!this.lastSettings?.fileSettings.some((f) => f.unique_id == file.unique_id) || file.files.original.length == 0) { // the file needs to be loaded
+      if(file.loadingState == 'not-loaded') { // the file needs to be loaded
         if(file.fps) window.clearInterval(file.fps.intervalId);
 
         // the file is a gif
@@ -82,6 +82,8 @@ export class LayeredDisplayComponent implements OnInit, AfterViewInit {
             let arrayBuffer = xhr.response;
             
             if(arrayBuffer) {
+              file.loadingState = 'loading';
+
               // parse the gif and load the frames
               let gif = parseGIF(arrayBuffer);
               let gifFrames = decompressFrames(gif, true);
@@ -121,13 +123,15 @@ export class LayeredDisplayComponent implements OnInit, AfterViewInit {
                         this.requestDraw$.next();
                       }, 1000/framerate)
                     }
-    
+
+                    file.loadingState = 'loaded';
+
                     updatedSettings.fileSettings[updatedFileIndex] = file;
                     this.settingsBroker.updateSettings(updatedSettings, this.MY_SETTINGS_BROKER_ID);
                     this.requestDraw$.next();
                   });
                 }
-              })
+              });
 
               // load the images
               gifFrames.forEach((frame) => {
@@ -180,6 +184,8 @@ export class LayeredDisplayComponent implements OnInit, AfterViewInit {
           const originalImage = new Image();
           originalImage.src = file.src;
 
+          file.loadingState = 'loading';
+
           file.files.original = [originalImage];
           file.files.currentFileIndex = 0;
 
@@ -191,6 +197,8 @@ export class LayeredDisplayComponent implements OnInit, AfterViewInit {
                 console.error('Failed to find the file in the settings');
                 return;
               }
+
+              file.loadingState = 'loaded';
 
               updatedSettings.fileSettings[updatedFileIndex] = file;
               this.settingsBroker.updateSettings(updatedSettings, this.MY_SETTINGS_BROKER_ID);
@@ -207,6 +215,8 @@ export class LayeredDisplayComponent implements OnInit, AfterViewInit {
           // init a video element to load the video
           let video = document.createElement('video');
           video.src = file.src;
+
+          file.loadingState = 'loading';
           
           video.onloadeddata = () => {
             // load the video and extract the frames to handle it as a gif
@@ -274,6 +284,8 @@ export class LayeredDisplayComponent implements OnInit, AfterViewInit {
 
                     if(i == -1) return;
 
+                    file.loadingState = 'loaded';
+
                     updatedSettings.fileSettings[i] = file;
       
                     this.settingsBroker.updateSettings(updatedSettings, this.MY_SETTINGS_BROKER_ID);
@@ -301,18 +313,21 @@ export class LayeredDisplayComponent implements OnInit, AfterViewInit {
       // the file is already loaded and just needs to be updated
       else {
         const updatedFile = settings.fileSettings.find((f) => f.unique_id == file.unique_id);
-        const lastFile = this.lastSettings?.fileSettings.find((f) => f.unique_id == file.unique_id);
 
-        if(!updatedFile || !lastFile) {
-          console.error('Failed to find the file in the settings');
+        if(!updatedFile) {
+          console.error('Failed to find the file in the settings. Removing it...');
+
+          if(file.fps)
+            window.clearInterval(file.fps.intervalId);
+
           return;
         }
 
-        if(lastFile.fps) window.clearInterval(lastFile.fps.intervalId);
-
         if(updatedFile.mimeType == 'image/gif') {
-          updatedFile.files.currentFileIndex = lastFile.files.currentFileIndex;
-          updatedFile.files.original = lastFile.files.original;
+          updatedFile.files.currentFileIndex = file.files.currentFileIndex;
+          updatedFile.files.original = file.files.original;
+
+          file.loadingState = 'loading';
 
           this.scaleImagesFromFileSetting([updatedFile]).then(() => {
             const updatedSettings = this.settingsBroker.getSettings();
@@ -340,16 +355,20 @@ export class LayeredDisplayComponent implements OnInit, AfterViewInit {
               }, 1000/(updatedFile.fps?.framerate || 10))
             }
 
+            file.loadingState = 'loaded';
+
             this.settingsBroker.updateSettings(updatedSettings, this.MY_SETTINGS_BROKER_ID);
             this.requestDraw$.next();
           });
         }
 
         else if(updatedFile.mimeType.startsWith('image')) {
-          updatedFile.files.currentFileIndex = lastFile.files.currentFileIndex;
-          updatedFile.files.original = lastFile.files.original;
+          updatedFile.files.currentFileIndex = file.files.currentFileIndex;
+          updatedFile.files.original = file.files.original;
+
+          file.loadingState = 'loading';
           
-          this.scaleImagesFromFileSetting([lastFile]).then(() => {
+          this.scaleImagesFromFileSetting([updatedFile]).then(() => {
             const updatedSettings = this.settingsBroker.getSettings();
             const updatedFileIndex = updatedSettings.fileSettings.findIndex((f) => f.unique_id == updatedFile.unique_id);
 
@@ -358,6 +377,8 @@ export class LayeredDisplayComponent implements OnInit, AfterViewInit {
               return;
             }
 
+            file.loadingState = 'loaded';
+
             updatedSettings.fileSettings[updatedFileIndex] = updatedFile;
             this.settingsBroker.updateSettings(updatedSettings, this.MY_SETTINGS_BROKER_ID);
             this.requestDraw$.next();
@@ -365,8 +386,10 @@ export class LayeredDisplayComponent implements OnInit, AfterViewInit {
         }
 
         else if(updatedFile.mimeType.startsWith('video')) {
-          updatedFile.files.currentFileIndex = lastFile.files.currentFileIndex;
-          updatedFile.files.original = lastFile.files.original;
+          updatedFile.files.currentFileIndex = file.files.currentFileIndex;
+          updatedFile.files.original = file.files.original;
+
+          file.loadingState = 'loading';
           
           this.scaleImagesFromFileSetting([updatedFile]).then(() => {
             const updatedSettings = this.settingsBroker.getSettings();
@@ -392,6 +415,8 @@ export class LayeredDisplayComponent implements OnInit, AfterViewInit {
                 this.requestDraw$.next();
               }, 1000/(updatedFile.fps?.framerate || 30))
             }
+
+            file.loadingState = 'loaded';
 
             this.settingsBroker.updateSettings(updatedSettings, this.MY_SETTINGS_BROKER_ID);
             this.requestDraw$.next();

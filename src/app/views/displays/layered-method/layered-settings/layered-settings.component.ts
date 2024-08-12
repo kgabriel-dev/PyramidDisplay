@@ -49,14 +49,6 @@ export class LayeredDisplaySettingsComponent {
   }
 
   resetSettings(): void {
-    // broadcast some empty settings to reset the display
-    this.settingsBroker.updateSettings({
-      generalSettings: {
-        numberOfLayers: this.settingsBroker.getSettings().generalSettings.numberOfLayers
-      },
-      fileSettings: []
-    }, this.MY_SETTINGS_BROKER_ID);
-
     // load the settings from the default file
     let settingsUrl: string;
 
@@ -91,7 +83,8 @@ export class LayeredDisplaySettingsComponent {
             currentFileIndex: 0
           },
           src: file.src,
-          unique_id: 'REPLACE_ME'
+          unique_id: 'REPLACE_ME',
+          loadingState: 'not-loaded'
       }))
     };
 

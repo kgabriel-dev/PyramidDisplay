@@ -28,6 +28,7 @@ export type LayeredDisplayFileSettings = {
     };
     src: string;
     layer: number;
+    loadingState: 'not-loaded' | 'loading' | 'loaded';
 }
 
 export enum MetaDataKeys {

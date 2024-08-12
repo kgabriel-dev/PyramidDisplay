@@ -18,8 +18,6 @@ export class LayeredDisplaySettingsBrokerService {
   public settings$ = this.settingsSubject.asObservable();
 
   public updateSettings(settings: LayeredDisplaySettings, changedBy: string): void {
-    console.log('Updating settings by ' + changedBy, settings);
-
     this.settingsSubject.next({settings, changedBy});
   }
 
@@ -111,7 +109,8 @@ export class LayeredDisplaySettingsBrokerService {
       scalingFactor: fileSetting.scalingFactor || 100,
       src: fileSetting.src || '',
       unique_id,
-      fps: fileSetting.fps
+      fps: fileSetting.fps,
+      loadingState: fileSetting.loadingState || 'not-loaded'
     }
   }
 }
