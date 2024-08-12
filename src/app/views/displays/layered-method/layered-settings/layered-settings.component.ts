@@ -28,8 +28,8 @@ export class LayeredDisplaySettingsComponent {
   readonly TEXT_ROTATE_IMG_MINUS = $localize`Rotate image counter-clockwise`;
   readonly TEXT_SCALE_IMG_UP = $localize`Scale image up`;
   readonly TEXT_SCALE_IMG_DOWN = $localize`Scale image down`;
-  readonly TEXT_MOVE_IMG_OUT = $localize`Move image outwards`;
-  readonly TEXT_MOVE_IMG_IN = $localize`Move image inwards`;
+  readonly TEXT_MOVE_IMG_R = $localize`Move image to the right`;
+  readonly TEXT_MOVE_IMG_L = $localize`Move image to the left`;
   readonly TEXT_IMG_BRIGHTER = $localize`Make image brighter`;
   readonly TEXT_IMG_DARKER = $localize`Make image darker`;
   readonly TEXT_IMG_URL_PLACEH = $localize`URL of the image`;
