@@ -288,11 +288,39 @@
           <context context-type="linenumber">94</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="2950766564714877527" datatype="html">
+        <source>The images can be brightened up and darkened automatically based on their layer number. If you want to change the brightness values, click the button.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="855737037152435633" datatype="html">
+        <source>This compensates for the fact that the images in the lower layers are less visible than the images in the upper layers, due to the light absorption of the mirror material.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
+          <context context-type="linenumber">102</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8344210611247712914" datatype="html">
+        <source>Auto-calculate brightness values</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4398193994332334024" datatype="html">
+        <source>Formula: <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>Brightness = ( <x id="TAG_INPUT" ctype="x-input" equiv-text="&lt;input type=&quot;number&quot; [(ngModel)]=&quot;autoBrightnessBaseValue&quot; class=&quot;bg-white text-black w-14 text-center&quot;&gt;"/> )<x id="START_SUPERSCRIPT" ctype="x-sup" equiv-text="&lt;sup&gt;"/>Layer index<x id="CLOSE_SUPERSCRIPT" ctype="x-sup" equiv-text="&lt;/sup&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
+          <context context-type="linenumber">106</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="3359631240272527848" datatype="html">
         <source>Save &amp; load settings</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
-          <context context-type="linenumber">104</context>
+          <context context-type="linenumber">112</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.html</context>
@@ -303,7 +331,7 @@
         <source>Save the current settings in a file on your PC.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
-          <context context-type="linenumber">107</context>
+          <context context-type="linenumber">115</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.html</context>
@@ -314,7 +342,7 @@
         <source>You can also load previously save settings from your PC.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
-          <context context-type="linenumber">108</context>
+          <context context-type="linenumber">116</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.html</context>
@@ -325,7 +353,7 @@
         <source>Save</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
-          <context context-type="linenumber">112</context>
+          <context context-type="linenumber">120</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.html</context>
@@ -336,7 +364,7 @@
         <source>Load Initial Settings</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
-          <context context-type="linenumber">113</context>
+          <context context-type="linenumber">121</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.html</context>
@@ -347,42 +375,42 @@
         <source>Number of layers / images</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
-          <context context-type="linenumber">125</context>
+          <context context-type="linenumber">133</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7533853474480666360" datatype="html">
         <source>With this setting you can adjust the number of layers.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
-          <context context-type="linenumber">128</context>
+          <context context-type="linenumber">136</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1804539511631884704" datatype="html">
         <source>Each layer displays one image.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
-          <context context-type="linenumber">129</context>
+          <context context-type="linenumber">137</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2534964080456981892" datatype="html">
         <source>You can use as many images as there are layers. If you use less images, the last layers will stay empty.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
-          <context context-type="linenumber">130</context>
+          <context context-type="linenumber">138</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4991259427179720015" datatype="html">
         <source>Layers</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.html</context>
-          <context context-type="linenumber">137</context>
+          <context context-type="linenumber">145</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5716119798687938784" datatype="html">
         <source>Move image up</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">22</context>
+          <context context-type="linenumber">23</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -393,7 +421,7 @@
         <source>Move image down</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">23</context>
+          <context context-type="linenumber">24</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -404,7 +432,7 @@
         <source>Delete image</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">25</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -415,7 +443,7 @@
         <source>Flip image vertically</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -426,7 +454,7 @@
         <source>Flip image horizontally</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">26</context>
+          <context context-type="linenumber">27</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -437,7 +465,7 @@
         <source>Rotate image clockwise</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">27</context>
+          <context context-type="linenumber">28</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -448,7 +476,7 @@
         <source>Rotate image counter-clockwise</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">28</context>
+          <context context-type="linenumber">29</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -459,7 +487,7 @@
         <source>Scale image up</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">29</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -470,7 +498,7 @@
         <source>Scale image down</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">31</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -481,21 +509,21 @@
         <source>Move image to the right</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7535606709466829592" datatype="html">
         <source>Move image to the left</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">32</context>
+          <context context-type="linenumber">33</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2263856694456758083" datatype="html">
         <source>Make image brighter</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">33</context>
+          <context context-type="linenumber">34</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -506,7 +534,7 @@
         <source>Make image darker</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">34</context>
+          <context context-type="linenumber">35</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -517,7 +545,7 @@
         <source>URL of the image</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">35</context>
+          <context context-type="linenumber">36</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -528,7 +556,7 @@
         <source>Increase FPS</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">36</context>
+          <context context-type="linenumber">37</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -539,7 +567,7 @@
         <source>Decrease FPS</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="linenumber">38</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -550,7 +578,7 @@
         <source>Brightness: <x id="PH" equiv-text="value"/>%</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">212</context>
+          <context context-type="linenumber">215</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -561,7 +589,7 @@
         <source>Flipped: <x id="PH" equiv-text="value"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">215</context>
+          <context context-type="linenumber">218</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -572,7 +600,7 @@
         <source>Rotation: <x id="PH" equiv-text="value"/>°</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">218</context>
+          <context context-type="linenumber">221</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -583,7 +611,7 @@
         <source>Size: <x id="PH" equiv-text="value"/>%</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">221</context>
+          <context context-type="linenumber">224</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -594,7 +622,7 @@
         <source>Position: <x id="PH" equiv-text="value"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">224</context>
+          <context context-type="linenumber">227</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -605,7 +633,7 @@
         <source>Framerate: <x id="PH" equiv-text="value"/>fps</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">227</context>
+          <context context-type="linenumber">230</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -616,7 +644,7 @@
         <source>Loading progress</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">237</context>
+          <context context-type="linenumber">240</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -627,7 +655,7 @@
         <source>v</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">263</context>
+          <context context-type="linenumber">266</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -638,7 +666,7 @@
         <source>h</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">264</context>
+          <context context-type="linenumber">267</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>
@@ -649,7 +677,7 @@
         <source>None</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/layered-method/layered-settings/layered-settings.component.ts</context>
-          <context context-type="linenumber">271</context>
+          <context context-type="linenumber">274</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/views/displays/standard-method/standard-settings/standard-settings.component.ts</context>

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayeredDisplaySettingsBrokerService } from 'src/app/services/layered-display/layered-display-settings-broker.service';
 import { LayeredDisplayFileSettings, LayeredDisplayGeneralSettings, LayeredDisplaySettings } from 'src/app/services/layered-display/layered-display-settings.type';
 import { MetaDataKeys } from 'src/app/services/standard-display/standard-display-settings.type';
@@ -11,13 +11,14 @@ import { MetaDataKeys } from 'src/app/services/standard-display/standard-display
   standalone: true,
   templateUrl: './layered-settings.component.html',
   styleUrls: ['./layered-settings.component.scss'],
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, ReactiveFormsModule, FormsModule]
 })
 export class LayeredDisplaySettingsComponent {
   readonly MY_SETTINGS_BROKER_ID = "LayeredDisplayUserSettingsComponent";
 
   readonly SCALING_STEP_SIZE = 5;
   readonly POSITIONING_STEP_SIZE = 5;
+  readonly BRIGHTNESS_STEP_SIZE = 5;
 
   readonly TEXT_MOVE_IMG_UP = $localize`Move image up`;
   readonly TEXT_MOVE_IMG_DOWN = $localize`Move image down`;
@@ -37,6 +38,8 @@ export class LayeredDisplaySettingsComponent {
   readonly TEXT_FPS_MINUS = $localize`Decrease FPS`;
 
   lastUpdatedSettings?: LayeredDisplaySettings;
+
+  autoBrightnessBaseValue = 1.25;
 
   constructor(private settingsBroker: LayeredDisplaySettingsBrokerService, private http: HttpClient) { 
     settingsBroker.settings$.subscribe(({settings, changedBy}) => {
@@ -390,7 +393,7 @@ export class LayeredDisplaySettingsComponent {
     this.settingsBroker.updateSettings(settings, this.MY_SETTINGS_BROKER_ID);
   }
 
-  changeImageBrightness(imageIndex: number, amount: number) {
+  changeImageBrightness(imageIndex: number) {
     const settings = this.settingsBroker.getSettings();
     const image = settings.fileSettings[imageIndex];
 
@@ -400,7 +403,7 @@ export class LayeredDisplaySettingsComponent {
     }
 
     const oldValue = image.brightness;
-    let newValue = oldValue + amount;
+    let newValue = oldValue + this.BRIGHTNESS_STEP_SIZE;
 
     if(newValue < 0) newValue = 0;
 
@@ -461,6 +464,21 @@ export class LayeredDisplaySettingsComponent {
 
     // still not known, return unknown
     return 'unknown';
+  }
+
+  calculateAutoBrightness(): void {
+    const settings = this.settingsBroker.getSettings();
+
+    settings.fileSettings.forEach((file) => {
+      // calculate brightness based on the layer with the formula brightness = 100 * 1.25^layer
+      let brightness = Math.pow(this.autoBrightnessBaseValue, file.layer) * 100;
+      // round brightness to the nearest multiple of BRIGHTNESS_STEP_SIZE
+      brightness = Math.round(brightness / this.BRIGHTNESS_STEP_SIZE) * this.BRIGHTNESS_STEP_SIZE;
+      // set the brightness
+      file.brightness = brightness;
+    });
+
+    this.settingsBroker.updateSettings(settings, this.MY_SETTINGS_BROKER_ID);
   }
 }
 
